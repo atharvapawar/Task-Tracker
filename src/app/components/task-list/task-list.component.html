@@ -1,0 +1,17 @@
+<ul class="tasks">
+  <li *ngFor="let task of tasks" [ngClass]="{'completed': task.completed}">
+    <div class="task-details">
+      <h3>{{ task.text }} </h3>
+      <p>{{ task.day }}</p>
+    </div>
+    <div class="task-actions">
+      <button class="action-btn" (click)="toggleCompleted(task)">
+        {{ task.completed ? 'Mark Incomplete' : 'Mark Completed' }}
+      </button>
+      <button class="action-btn" (click)="toggleReminder(task)">
+        {{ task.reminder ? 'Unset Reminder' : 'Set Reminder' }}
+      </button>
+      <span class="delete-btn" (click)="deleteTask(task)">❌</span>
+    </div>
+  </li>
+</ul>
